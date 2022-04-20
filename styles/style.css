@@ -1,0 +1,33 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.container {
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    margin: auto;
+}
+
+
+
+.container div {
+    background-color: #000;
+}
+
+.container div:hover {
+    background-color: #fa0;
+}
