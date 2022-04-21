@@ -3,11 +3,10 @@ const container = document.querySelector('.container');
 let customizedSize = prompt('Please enter the size of number');
 
 setInitialCanvas();
-
-
-
 setCustomizedCanvas();
+const  divs = document.querySelectorAll('div > div');
 printDot();
+setResetBtn()
 
 
 
@@ -31,7 +30,6 @@ function setCustomizedCanvas() {
 }
 
 function printDot() {
-    const  divs = document.querySelectorAll('div > div');
     divs.forEach(div => {
         div.addEventListener('mouseover', (e) => {
             e.target.style.backgroundColor = '#fa0';
@@ -44,11 +42,12 @@ function putDiv() {
     container.appendChild(div);
 }
 
-// reset button
-const resetBtn = document.querySelector('.reset');
-resetBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    divs.forEach(div => {
-        div.style.backgroundColor = '';
+function setResetBtn() {
+    const resetBtn = document.querySelector('.reset');
+    resetBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        divs.forEach(div => {
+            div.style.backgroundColor = '';
+        })
     })
-})
+}
