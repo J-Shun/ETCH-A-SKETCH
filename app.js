@@ -1,28 +1,23 @@
 const container = document.querySelector('.container');
-
-let customizedSize = prompt('Please enter the size of number');
+const resetBtn = document.querySelector('.reset');
+const colorChoice = document.querySelector('.color');
+let color = '#000';
+let customizedSize = 0;
 
 setInitialCanvas();
-setCustomizedCanvas();
 const  divs = document.querySelectorAll('div > div');
 printDot();
 setResetBtn()
 
-
-
-
-
-
-
 function setInitialCanvas() {
-    for (let i = 0; i < 16*16; i++) {
+    for (let i = 0; i < 32*32; i++) {
         putDiv();
     }
     container.classList.add('gridBoard');
 }
 
-function setCustomizedCanvas() {
-    for (let i = 0; i < (customizedSize*customizedSize); i++) {
+function setCustomizedSizeCanvas() {
+    for (let i = 0; i < (customizedSize * customizedSize); i++) {
         putDiv();
     }
     container.style.gridTemplateColumns = `repeat(${customizedSize}, 1fr)`;
@@ -32,7 +27,7 @@ function setCustomizedCanvas() {
 function printDot() {
     divs.forEach(div => {
         div.addEventListener('mouseover', (e) => {
-            e.target.style.backgroundColor = '#fa0';
+            e.target.style.backgroundColor = color;
         })
     })
 }
@@ -43,7 +38,6 @@ function putDiv() {
 }
 
 function setResetBtn() {
-    const resetBtn = document.querySelector('.reset');
     resetBtn.addEventListener('click', (e) => {
         e.preventDefault();
         divs.forEach(div => {
@@ -51,3 +45,9 @@ function setResetBtn() {
         })
     })
 }
+
+
+colorChoice.addEventListener('input', () => {
+    color = colorChoice.value;
+})
+
