@@ -1,6 +1,7 @@
 const container = document.querySelector('.container');
 const resetBtn = document.querySelector('.reset');
 const colorChoice = document.querySelector('.color');
+const eraser = document.querySelector('.fa-eraser');
 let color = '#000';
 let customizedSize = 0;
 
@@ -49,5 +50,9 @@ function setResetBtn() {
 
 colorChoice.addEventListener('input', () => {
     color = colorChoice.value;
+    console.log(color);
 })
 
+eraser.addEventListener('click', () => {
+    color = '#fff';
+})
