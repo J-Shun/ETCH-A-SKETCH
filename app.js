@@ -1,7 +1,10 @@
+const allColor = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f',];
+
 const container = document.querySelector('.container');
 const resetBtn = document.querySelector('.reset');
 const colorChoice = document.querySelector('.color');
 const eraser = document.querySelector('.fa-eraser');
+const random = document.querySelector('.fa-rainbow');
 let color = '#000';
 let customizedSize = 0;
 
@@ -50,9 +53,17 @@ function setResetBtn() {
 
 colorChoice.addEventListener('input', () => {
     color = colorChoice.value;
-    console.log(color);
+})
+
+colorChoice.addEventListener('click', () => {
+    color = colorChoice.value;
 })
 
 eraser.addEventListener('click', () => {
     color = '#fff';
+})
+
+
+random.addEventListener('click', () => {
+    
 })
