@@ -1,10 +1,12 @@
 const allColor = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f',];
+let randomColor = [];
+
 
 const container = document.querySelector('.container');
 const resetBtn = document.querySelector('.reset');
 const colorChoice = document.querySelector('.color');
 const eraser = document.querySelector('.fa-eraser');
-const random = document.querySelector('.fa-rainbow');
+const random = document.querySelector('.fa-question');
 let color = '#000';
 let customizedSize = 0;
 
@@ -50,6 +52,12 @@ function setResetBtn() {
     })
 }
 
+function changeColor() {
+    for(let i = 0; i < 3; i++) {
+        randomColor.push(allColor[Math.floor((Math.random() * allColor.length))])
+;    }
+}
+
 
 colorChoice.addEventListener('input', () => {
     color = colorChoice.value;
@@ -63,7 +71,11 @@ eraser.addEventListener('click', () => {
     color = '#fff';
 })
 
-
 random.addEventListener('click', () => {
-    
+    divs.forEach(div => {
+        div.addEventListener('mouseover', (e) => {
+            changeColor();
+            e.target.style.backgroundColor = `#${randomColor.pop()}${randomColor.pop()}${randomColor.pop()}`;
+        })
+    })
 })

@@ -18,6 +18,7 @@ h1 {
 
 button {
     padding: 5px 15px;
+    font-size: 20px;
     color: #fff;
     background-color: rgb(20, 55, 131);
     border: none;
@@ -42,7 +43,7 @@ button:hover {
 .fa-eraser:hover {
     color: rgb(15, 43, 104);
 }
-.fa-rainbow {
+.fa-question {
     background: -webkit-linear-gradient(#f00, #00f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -64,6 +65,10 @@ input[type="color" i]::-webkit-color-swatch-wrapper {
 input[type="color" i]::-webkit-color-swatch {
     border-radius: 50%;
     border: none;
+}
+
+input[type="color" i]::-webkit-color-swatch:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
 }
 
 .function-area {
