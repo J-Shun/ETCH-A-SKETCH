@@ -12,8 +12,7 @@ let customizedSize = 0;
 
 setInitialCanvas();
 const  divs = document.querySelectorAll('div > div');
-printDot();
-setResetBtn()
+printNormalDot();
 
 function setInitialCanvas() {
     for (let i = 0; i < 32*32; i++) {
@@ -22,7 +21,7 @@ function setInitialCanvas() {
     container.classList.add('gridBoard');
 }
 
-function setCustomizedSizeCanvas() {
+function setCustomizedCanvas() {
     for (let i = 0; i < (customizedSize * customizedSize); i++) {
         putDiv();
     }
@@ -30,10 +29,19 @@ function setCustomizedSizeCanvas() {
     container.style.gridTemplateRows = `repeat(${customizedSize}, 1fr)`;
 }
 
-function printDot() {
+function printNormalDot() {
     divs.forEach(div => {
         div.addEventListener('mouseover', (e) => {
             e.target.style.backgroundColor = color;
+        })
+    })
+}
+
+function printRandomDot() {
+    divs.forEach(div => {
+        div.addEventListener('mouseover', (e) => {
+            changeColor();
+            e.target.style.backgroundColor = `#${randomColor.pop()}${randomColor.pop()}${randomColor.pop()}`;
         })
     })
 }
@@ -43,12 +51,9 @@ function putDiv() {
     container.appendChild(div);
 }
 
-function setResetBtn() {
-    resetBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        divs.forEach(div => {
-            div.style.backgroundColor = '';
-        })
+function reset() {
+    divs.forEach(div => {
+        div.style.backgroundColor = '';
     })
 }
 
@@ -58,24 +63,28 @@ function changeColor() {
 ;    }
 }
 
+//  buttons
 
 colorChoice.addEventListener('input', () => {
     color = colorChoice.value;
+    printNormalDot();
 })
 
 colorChoice.addEventListener('click', () => {
     color = colorChoice.value;
+    printNormalDot();
 })
 
 eraser.addEventListener('click', () => {
     color = '#fff';
+    printNormalDot();
 })
 
 random.addEventListener('click', () => {
-    divs.forEach(div => {
-        div.addEventListener('mouseover', (e) => {
-            changeColor();
-            e.target.style.backgroundColor = `#${randomColor.pop()}${randomColor.pop()}${randomColor.pop()}`;
-        })
-    })
+    printRandomDot();
+})
+
+resetBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    reset();
 })
