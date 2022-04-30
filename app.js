@@ -45,6 +45,7 @@ function normalColorMode() {
     container.addEventListener('mousedown', () => {
         divs.forEach(div => {
             div.addEventListener('mouseover', printNormalColor);
+            div.addEventListener('click', printNormalColor);
         })
     })
     
